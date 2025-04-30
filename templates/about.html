@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me | The Journey Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <h1>The Journey Home</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}" class="active">About</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}">Learning Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="about-hero">
+    <div class="about-overlay">
+      <div class="about-text">
+        <h2>About Me – The Journey Home</h2>
+        <p>This isn’t just a website. It’s a reflection of my journey — the messy, beautiful, painful, and powerful truth of how I came home to myself.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
+
+      <p>My journey started at 17. I thought I had it all figured out — but I quickly took a detour that lasted nearly 10 years, lost in drug use, toxic relationships, and brushes with the law. I've made mistakes. Some scars I carry are mine, some were handed to me. But each one has shaped me into who I am now.</p>
+      <img src="{{ url_for('static', filename='images/about-journey1.jpg') }}" class="about-image" alt="Early Journey">
+
+      <p>About five years ago, I got married. I went back to school, built a life, adopted pets, and tried to create something stable. But when my grandmother — my Nanny — passed away, everything shifted. Her absence left a void no one else could fill. I kept going, tried to keep it together, but eventually the cracks showed. I checked myself into a mental health facility to rest, heal, and face myself.</p>
+      <img src="{{ url_for('static', filename='images/about-journey2.jpg') }}" class="about-image" alt="Marriage Period">
+
+      <p>While I was inside, my marriage ended. My partner moved on. I was devastated and confused — I kept saying I just wanted to go "home," not realizing that one day I’d understand home was never a place, but a return to self.</p>
+
+      <video class="about-video" controls>
+        <source src="{{ url_for('static', filename='images/about-journey3.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <p>I moved back with my family, but it wasn’t the same. Without Nanny, the warmth was gone. Mental illness, addiction recovery, and the weight of suicidal thoughts don’t make you easy to understand — especially when you're expected to be "normal" right away. I was hurting, but I was told to go back to work. I got scammed out of money I desperately needed. And when I finally got my first car, things at home got worse. Curfews. Rules. Tension. They said my dog had to go. I dropped out of school. And eventually, I had to leave.</p>
+      <img src="{{ url_for('static', filename='images/about-journey4.jpg') }}" class="about-image" alt="Spiritual Moment">
+
+      <p>I was supposed to get my own place. I had a job lined up with Google. But that fell through too. Suddenly, I was homeless. No job. No stable home. Nothing — except my car, my dog, and my will to keep going.</p>
+
+      <p>I traveled from state to state, looking for something — or maybe just trying to lose what I was. But even in the darkest moments, I was never truly alone. I see that now. I give thanks to the Most High, my ancestors, my spirit team, my angels, archangels — and even my shadow self. They carried me.</p>
+
+      <p>I wasn’t chasing material things — I was chasing my soul.</p>
+
+      <p>Now, I’m back in my home state. Still homeless. Still fighting. But something inside me has changed. I’ve grown. I’ve forgiven. I’ve made peace with my past and everyone in it — including myself. I don’t chase 9-to-5s anymore. I chase purpose. Passion. Creativity. Freedom.</p>
+
+      <img src="{{ url_for('static', filename='images/about-journey5.jpg') }}" class="about-image" alt="Rising in Power">
+
+      <p>I may not have the traditional credentials, but I have something more valuable: vision, resilience, and faith. I’m building apps. Games. Tools for transformation. My company, StancilsDev (SDev), is more than business — it’s my offering to the world.</p>
+
+      <p>They say I was alone on this journey home — but I was never truly alone. I had my fur daughter. My spirit guides. My ancestors. The Most High. And now, I have you — witnessing my return.</p>
+
+      <p><strong>Welcome to The Journey Home.</strong></p>
+
+      <img src="{{ url_for('static', filename='images/walking-light.jpg') }}" class="about-image" alt="Final Silhouette Walking Toward Light">
+
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 StancilsDev. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const mediaElements = document.querySelectorAll('.about-image, .about-video');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    mediaElements.forEach(el => observer.observe(el));
+  </script>
+
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Back to top">🪷</button>
+
+<script>
+  window.onscroll = function () {
+    const btn = document.getElementById("scrollTopBtn");
+    btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+      ? "block" : "none";
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

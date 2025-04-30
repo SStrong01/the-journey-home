@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | The Journey Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="container">
+    <h1>The Journey Home</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('blog') }}">The Soul Scrolls</a></li>
+        <li><a href="{{ url_for('contact') }}" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="contact-section">
+  <div class="container">
+    <h2>Let’s Connect</h2>
+    <p>Want to connect with me directly? I’m here. Send your light, your questions, your intentions below.</p>
+
+    {% if request.args.get('success') == 'true' %}
+      <div class="success-message">Thank you for reaching out. I’ll be in touch soon.</div>
+    {% elif request.args.get('error') == 'true' %}
+      <div class="error-message">Something went wrong. Please try again.</div>
+    {% endif %}
+
+    <form method="POST" action="/submit-contact">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer class="main-footer">
+  <p>&copy; 2025 StancilsDev. All Rights Reserved.</p>
+</footer>
+<!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
+
+<!-- Background Audio Toggle -->
+<div class="audio-toggle">
+  <label>
+    <input type="checkbox" id="bg-audio-toggle" checked>
+    Play Ambient Waterfall
+  </label>
+  <audio id="bg-audio" loop>
+    <source src="{{ url_for('static', filename='audio/waterfall.mp3') }}" type="audio/mpeg">
+  </audio>
+</div>
+
+<!-- Scripts -->
+<script>
+  // Scroll-to-Top functionality
+  window.onscroll = () => {
+    document.getElementById("scrollBtn").style.display =
+      window.scrollY > 100 ? "block" : "none";
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Background audio toggle
+  const bgAudio = document.getElementById("bg-audio");
+  const toggle = document.getElementById("bg-audio-toggle");
+  toggle.addEventListener("change", () => {
+    toggle.checked ? bgAudio.play() : bgAudio.pause();
+  });
+  window.addEventListener("load", () => {
+    if (toggle.checked) bgAudio.play().catch(() => {});
+  });
+</script>
+
+<script>
+  // Show Scroll-to-Top Button
+  window.onscroll = () => {
+    document.getElementById("scrollBtn").style.display = 
+      document.body.scrollTop > 100 || document.documentElement.scrollTop > 100 
+      ? "block" 
+      : "none";
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Auto-play or pause background audio
+  const bgAudio = document.getElementById("bg-audio");
+  const toggle = document.getElementById("bg-audio-toggle");
+  toggle.addEventListener("change", () => {
+    toggle.checked ? bgAudio.play() : bgAudio.pause();
+  });
+  window.addEventListener("load", () => {
+    if (toggle.checked) bgAudio.play().catch(() => {});
+  });
+</script>
+
+
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Back to top">🪷</button>
+
+<script>
+  window.onscroll = function () {
+    const btn = document.getElementById("scrollTopBtn");
+    btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+      ? "block" : "none";
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

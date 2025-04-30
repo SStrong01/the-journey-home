@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | The Journey Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <h1>The Journey Home</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('projects') }}" class="active">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}">Learning Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="project-section">
+    <div class="container">
+      <h2 class="section-title">Live Projects</h2>
+
+      <div class="project-card">
+        <h3>IdeaFlow AI</h3>
+        <p>An AI-powered content generator that crafts platform-ready ideas for your business or brand. Quick, clear, and creative — all for a small fee.</p>
+        <a href="https://ai-content-dqzc.onrender.com" target="_blank" class="btn">View Live</a>
+      </div>
+
+      <div class="project-card coming-soon">
+        <h3>CryptoSun Trader</h3>
+        <p>Your future in auto crypto trading. This app learns the market, sets trades, and will soon handle stop-losses and exits — aiming for real, consistent profit while you sleep.</p>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="container">
+      <h2 class="section-title">Coming Soon</h2>
+
+      <div class="project-card coming-soon">
+        <h3>ToneCrafter</h3>
+        <p>Your music. Your ringtone. Take songs from your iTunes and craft custom ringtones with precision — clip it, set it, and vibe out. All in one seamless app.</p>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+
+      <div class="project-card coming-soon">
+        <h3>AdMaster</h3>
+        <p>Post your product to every platform with one tool. AdMaster uses AI to generate perfect campaigns, calculate pricing, and automate your ad posts. Marketing — simplified.</p>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+
+      <div class="project-card coming-soon">
+        <h3>Project HOME (Game)</h3>
+        <p>A revolutionary spiritual open-world game where you don't just play — you awaken. A journey of self-discovery, choices, and divine alignment. This is where gaming meets transformation.</p>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 StancilsDev. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Reveal-on-scroll animation -->
+  <script>
+    const cards = document.querySelectorAll('.project-card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Back to top">🪷</button>
+
+<script>
+  window.onscroll = function () {
+    const btn = document.getElementById("scrollTopBtn");
+    btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+      ? "block" : "none";
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

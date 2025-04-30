@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Journey Home | StancilsDev</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <h1>The Journey Home</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}">Learning Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="homepage-hero">
+    <div class="hero-text">
+      <h2>Where Technology Meets Soul</h2>
+      <p>Welcome to The Journey Home</p>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="homepage-intro">
+    <div class="container">
+      <h3>Welcome</h3>
+      <p>
+        I’m a creator, healer, and developer walking the path home to self. StancilsDev is my soul’s work —
+        here to awaken, inspire, and build new worlds through software and spirit. Explore the journey.
+      </p>
+    </div>
+  </section>
+
+  <!-- Navigation Cards -->
+  <section class="homepage-cards">
+    <div class="container card-grid">
+      <a href="{{ url_for('about') }}" class="card">
+        <h4>About Me</h4>
+        <p>Learn about my story and my path home.</p>
+      </a>
+      <a href="{{ url_for('projects') }}" class="card">
+        <h4>Projects</h4>
+        <p>See the creations I’m building and coding from the soul.</p>
+      </a>
+      <a href="{{ url_for('blog') }}" class="card">
+        <h4>Spiritual Blog</h4>
+        <p>Insights, truths, and healing for the real ones.</p>
+      </a>
+      <a href="{{ url_for('contact') }}" class="card">
+        <h4>Contact</h4>
+        <p>Reach out, build with me, or just say peace.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Quote Strip -->
+  <section class="homepage-quote">
+    <p>"You are not lost. You are on the journey home."</p>
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 StancilsDev. All Rights Reserved.</p>
+  </footer>
+
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Back to top">🪷</button>
+
+<script>
+  window.onscroll = function () {
+    const btn = document.getElementById("scrollTopBtn");
+    btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+      ? "block" : "none";
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

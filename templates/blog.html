@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Soul Scrolls | The Journey Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <h1>The Journey Home</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}" class="active">The Soul Scrolls</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="container">
+      <h2>The Soul Scrolls</h2>
+      <p>I’m writing this blog to help another make it home. No, I don’t have the blueprint, but I can ease the pain of the journey. So come learn while I learn — with me.</p>
+    </div>
+  </section>
+
+  <section class="affirmations">
+    <div class="container">
+      <h3>Mental & Emotional Wellness Affirmations</h3>
+      <ul>
+        <li>My mind is clear, balanced, and focused.</li>
+        <li>I release stress and welcome peace into my nervous system.</li>
+        <li>I allow myself to feel, to rest, to breathe. My emotions are valid and sacred.</li>
+        <li>My mental health matters — I protect it like the treasure it is.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="elixirs">
+  <div class="container">
+    <h3>Spiritual Elixirs, Teas & Juices</h3>
+    <div class="elixir-grid">
+
+      <div class="elixir-block">
+        <h4 class="elixir-title">Mucus-Clearing Juice (AM & PM)</h4>
+        <p><strong>Ingredients:</strong> Cucumber, 2 celery stalks, 1 lemon, cilantro, ginger root, green apple</p>
+        <p><strong>Optional:</strong> Activated charcoal or chlorella</p>
+        <p><strong>Drink:</strong> Twice per day</p>
+      </div>
+
+      <div class="elixir-block">
+        <h4 class="elixir-title">Lunch Juice (Cleanse + Nourish)</h4>
+        <p>1 beet, 2 carrots, 1 orange, turmeric, dash of cinnamon</p>
+        <p><strong>Purpose:</strong> Moves blood, clears liver, grounds energy</p>
+      </div>
+
+      <div class="elixir-block">
+        <h4 class="elixir-title">Herbal Teas for Detox</h4>
+        <ul>
+          <li>Mullein – clears lung mucus</li>
+          <li>Burdock root – blood cleanser</li>
+          <li>Dandelion root – liver detox</li>
+          <li>Nettle – kidney and heavy metal detox</li>
+          <li>Red clover – lymphatic system</li>
+          <li>Peppermint or ginger – digestive cleansing</li>
+        </ul>
+        <p><strong>Drink:</strong> 3–4 cups daily</p>
+      </div>
+
+      <div class="elixir-block">
+        <h4 class="elixir-title">Immune Booster & Infection Fighter Tea</h4>
+        <p><strong>Ingredients:</strong> Echinacea root, elderflower/berries, thyme, clove</p>
+        <p><strong>Optional:</strong> Add lemon + honey for taste</p>
+        <p><strong>Drink:</strong> 2x daily</p>
+        <p><strong>Affirmation:</strong> My body is strong. My cells are light-filled.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <section class="voice-message">
+    <div class="container">
+      <h3>Voice of the Soul</h3>
+      <p>"You are not broken. You are rebuilding. Listen to today’s message."</p>
+      <audio controls>
+        <source src="{{ url_for('static', filename='audio/voice-message-1.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </section>
+
+  <section class="ancestor-message">
+    <div class="container">
+      <h3>Ancestor Message — Tarot of the Day</h3>
+      <p><em>(You will draw a card each day and update this message)</em></p>
+      <p><strong>Card Drawn:</strong> [Insert Card Here]</p>
+      <p><strong>Message:</strong> [Insert your channeled guidance here]</p>
+    </div>
+  </section>
+
+  <section class="community-share">
+    <div class="container">
+      <h3>Share Your Wisdom With Me</h3>
+      <p>If you’ve received insight, healing, or wisdom that you think I’d love to learn — share it here.</p>
+      <form method="POST" action="/submit-reflection">
+        <textarea name="message" rows="5" placeholder="Teach me something... a ritual, an herb, a truth... I’m listening." required></textarea>
+        <button type="submit">Send Wisdom</button>
+{% if request.args.get('success') == 'true' %}
+  <div class="success-message">Thank you for your wisdom. I’ve received it in my heart and inbox.</div>
+{% elif request.args.get('error') == 'true' %}
+  <div class="error-message">Oops, something went wrong. Try again or email me directly.</div>
+{% endif %}
+      </form>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 StancilsDev. All Rights Reserved.</p>
+  </footer>
+
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Back to top">🪷</button>
+
+<script>
+  window.onscroll = function () {
+    const btn = document.getElementById("scrollTopBtn");
+    btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+      ? "block" : "none";
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
