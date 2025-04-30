@@ -60,13 +60,13 @@ body, html {
 
 /* Hero Section */
 .about-hero {
-  min-height: 60vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-              url('../static/images/walking-light.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    min-height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+                url('/static/images/walking-light.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .about-overlay {
@@ -149,15 +149,43 @@ body, html {
   color: #ffd700;
 }
 
+.homepage-hero {
+    background-image: url("/static/images/sunbeam-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 6rem 2rem;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.homepage-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Optional overlay */
+    z-index: 0;
+}
+
+.homepage-hero .hero-text {
+    position: relative;
+    z-index: 1;
+}
+
 .homepage-hero .hero-text h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 3rem;
-  margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 .homepage-hero .hero-text p {
-  font-size: 1.3rem;
+    font-size: 1.3rem;
 }
+
 
 /* Intro Section */
 .homepage-intro {
