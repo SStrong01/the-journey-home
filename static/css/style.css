@@ -69,6 +69,17 @@ body, html {
     text-align: center;
 }
 
+/* Make all about images responsive and fit within the container */
+.about-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
 .about-overlay {
   color: #ffd700;
   padding: 2rem;
