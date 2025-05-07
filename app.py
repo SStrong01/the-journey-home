@@ -69,5 +69,9 @@ def submit_contact():
     else:
         return redirect(url_for("contact", error="true"))
 
+@app.route('/spiritual-terms')
+def spiritual_terms():
+    return render_template('spiritual-terms.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
