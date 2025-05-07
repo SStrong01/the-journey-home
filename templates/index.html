@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Journey Home | StancilsDev</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600      &family=Lato&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="icon" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
 </head>
 <body>
 
@@ -20,6 +23,8 @@
           <li><a href="{{ url_for('blog') }}">Learning Blog</a></li>
           <li><a href="{{ url_for('contact') }}">Contact</a></li>
 	<li><a href="{{ url_for('spiritual_terms') }}">Privacy & Disclaimer</a></li>
+         <li><a href="{{ url_for('spiritual_terms') }}">Privacy & Disclaimer</a></li>
+         <li><a href="https://your-link.com" target="_blank">External Link</a></li>
         </ul>
       </nav>
     </div>
@@ -72,8 +77,13 @@
   </section>
 
   <footer class="main-footer">
-    <p>&copy; 2025 StancilsDev. All Rights Reserved.</p>
-  </footer>
+  <p>&copy; 2025 SDev. All Rights Reserved.</p>
+  <ul class="footer-links">
+    <li><a href="{{ url_for('spiritual_terms') }}">Privacy & Disclaimer</a></li>
+    <li><a href="https://instagram.com/yourpage" target="_blank">Instagram</a></li>
+    <li><a href="mailto:your@email.com">Contact Us</a></li>
+  </ul>
+</footer>
 
 <button onclick="scrollToTop()" id="scrollTopBtn" title="Back to top">🪷</button>
 

@@ -650,3 +650,20 @@ section {
   box-shadow: 0 0 20px #dda0dd, 0 0 40px #dda0dd, 0 0 60px #dda0dd;
   transform: scale(1.1);
 }
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-top: 1em;
+}
+
+.footer-links li a {
+  color: #ad8add; /* Purple or gold */
+  text-decoration: none;
+}
+
+.footer-links li a:hover {
+  color: #ffd700; /* Yellow hover */
+}
