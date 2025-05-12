@@ -667,3 +667,15 @@ section {
 .footer-links li a:hover {
   color: #ffd700; /* Yellow hover */
 }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.logo-img {
+  height: 40px;
+  max-width: 100px;
+  object-fit: contain;
+}
