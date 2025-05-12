@@ -7,12 +7,68 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+  <style>
+    body {
+      background: url('{{ url_for('static', filename='images/logo.png') }}') center center no-repeat;
+      background-size: contain;
+      background-color: #0a0a0a;
+      color: #fff;
+    }
+
+    .main-header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 0;
+    }
+
+    .project-section {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 3rem 1rem;
+    }
+
+    .project-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid #fff;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #222;
+    }
+
+    .project-card h3 {
+      color: #ffd700;
+    }
+
+    .project-card p {
+      color: #ddd;
+    }
+
+    .btn, .coming-label {
+      background-color: #ffd700;
+      color: #000;
+      padding: 0.4rem 0.8rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .nav-links li a.active {
+      color: #ffd700;
+    }
+  </style>
 </head>
 <body>
-
   <header class="main-header">
     <div class="container">
       <h1>The Journey Home</h1>
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SDev Logo" class="logo-img" />
       <nav>
         <ul class="nav-links">
           <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -20,6 +76,7 @@
           <li><a href="{{ url_for('projects') }}" class="active">Projects</a></li>
           <li><a href="{{ url_for('blog') }}">Learning Blog</a></li>
           <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('spiritual_terms') }}">Privacy & Disclaimer</a></li>
         </ul>
       </nav>
     </div>
@@ -27,44 +84,35 @@
 
   <section class="project-section">
     <div class="container">
-      <h2 class="section-title">Live Projects</h2>
-
       <div class="project-card">
         <h3>IdeaFlow AI</h3>
-        <p>An AI-powered content generator that crafts platform-ready ideas for your business or brand. Quick, clear, and creative — all for a small fee.</p>
+        <p>AI-powered content generator that crafts platform-ready ideas for your business or brand. Quick, clear, and creative — all for a small fee.</p>
         <a href="https://ai-content-dqzc.onrender.com" target="_blank" class="btn">View Live</a>
       </div>
 
-      <div class="project-card coming-soon">
+      <div class="project-card">
         <h3>CryptoSun Trader</h3>
-        <p>Your future in auto crypto trading. This app learns the market, sets trades, and will soon handle stop-losses and exits — aiming for real, consistent profit while you sleep.</p>
-        <span class="coming-label">Coming Soon</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="project-section">
-    <div class="container">
-      <h2 class="section-title">Coming Soon</h2>
-
-      <div class="project-card coming-soon">
-        <h3>ToneCrafter</h3>
-        <p>Your music. Your ringtone. Take songs from your iTunes and craft custom ringtones with precision — clip it, set it, and vibe out. All in one seamless app.</p>
+        <p>This app learns the market, sets trades, and will soon handle stop-losses and exits — aiming for real, consistent profit while you sleep.</p>
         <span class="coming-label">Coming Soon</span>
       </div>
 
-      <div class="project-card coming-soon">
-        <h3>AdMaster</h3>
-        <p>Post your product to every platform with one tool. AdMaster uses AI to generate perfect campaigns, calculate pricing, and automate your ad posts. Marketing — simplified.</p>
+      <div class="project-card">
+        <h3>Ringtone Maker</h3>
+        <p>Your music. Your ringtone. Take songs from your iTunes and craft custom ringtones with precision — clip it, set it, and vibe out.</p>
         <span class="coming-label">Coming Soon</span>
       </div>
 
-      <div class="project-card coming-soon">
-        <h3>Project HOME (Game)</h3>
-        <p>A revolutionary spiritual open-world game where you don't just play — you awaken. A journey of self-discovery, choices, and divine alignment. This is where gaming meets transformation.</p>
+      <div class="project-card">
+        <h3>Project Home (Game)</h3>
+        <p>A revolutionary spiritual open-world game where you don’t just play — you awaken. A journey of self-discovery, choices, and divine alignment.</p>
         <span class="coming-label">Coming Soon</span>
       </div>
 
+      <div class="project-card">
+        <h3>Mythic Rebirth</h3>
+        <p>An ancient-futuristic, AI-powered web browser that blends sacred technology with intuitive intelligence. A soul-aligned search experience guided by embedded wisdom.</p>
+        <span class="coming-label">Coming Soon</span>
+      </div>
     </div>
   </section>
 
@@ -72,11 +120,9 @@
     <p>&copy; 2025 StancilsDev. All Rights Reserved.</p>
   </footer>
 
-  <!-- Reveal-on-scroll animation -->
   <script>
     const cards = document.querySelectorAll('.project-card');
-
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal');
